@@ -44,3 +44,116 @@ header{text-align:center;padding:14px;font-size:22px;border-bottom:2px solid #4c
   border:none;
   border-radius:6px;
   padding:10px 14px;
+  font-weight:bold
+}
+</style>
+</head>
+
+<body>
+
+<header>Antrenman Programı</header>
+
+<!-- AY SEKME -->
+<div class="tabs">
+  <button class="active" onclick="showMonth('m2',this)">2. Ay</button>
+  <button onclick="showMonth('m3',this)">3. Ay</button>
+</div>
+
+<div class="container">
+
+<!-- ================= 2. AY ================= -->
+<div id="m2" class="month" style="display:block">
+
+  <div class="subtabs">
+    <button class="active" onclick="showDay('m2g1',this)">Ön</button>
+    <button onclick="showDay('m2g2',this)">Arka</button>
+  </div>
+
+  <div id="m2g1" class="day" style="display:block">
+    <div class="exercise"><h3>Bench Press</h3><img src="ornek.gif" class="gif"></div>
+    <div class="exercise"><h3>Barbell Biceps Curl</h3><img src="ornek.gif" class="gif"></div>
+  </div>
+
+  <div id="m2g2" class="day">
+    <div class="exercise"><h3>Lat Pull Down</h3><img src="ornek.gif" class="gif"></div>
+    <div class="exercise"><h3>Leg Curl</h3><img src="ornek.gif" class="gif"></div>
+  </div>
+
+</div>
+
+<!-- ================= 3. AY ================= -->
+<div id="m3" class="month">
+
+  <div class="subtabs">
+    <button class="active" onclick="showDay('g1',this)">1. Gün</button>
+    <button onclick="showDay('g2',this)">2. Gün</button>
+    <button onclick="showDay('g3',this)">3. Gün</button>
+  </div>
+
+  <!-- 1. GÜN -->
+  <div id="g1" class="day" style="display:block">
+    <div class="exercise"><h3>Bench Press</h3><img src="ornek.gif" class="gif"><KgBox id="bp"/></div>
+    <div class="exercise"><h3>Dumbbell Fly</h3><img src="ornek.gif" class="gif"><KgBox id="df"/></div>
+    <div class="exercise"><h3>Incline Bench Press</h3><img src="ornek.gif" class="gif"><KgBox id="ibp"/></div>
+    <div class="exercise"><h3>Incline Dumbbell Press</h3><img src="ornek.gif" class="gif"><KgBox id="idp"/></div>
+    <div class="exercise"><h3>Pullover</h3><img src="ornek.gif" class="gif"><KgBox id="pl"/></div>
+    <div class="exercise"><h3>Triceps Pushdown</h3><img src="ornek.gif" class="gif"><KgBox id="tp"/></div>
+    <div class="exercise"><h3>French Triceps</h3><img src="ornek.gif" class="gif"><KgBox id="ft"/></div>
+    <div class="exercise"><h3>One Dumbbell Triceps Press</h3><img src="ornek.gif" class="gif"><KgBox id="odtp"/></div>
+  </div>
+
+  <!-- 2. GÜN -->
+  <div id="g2" class="day">
+    <div class="exercise"><h3>Lat Pull Down</h3><img src="ornek.gif" class="gif"><KgBox id="lat"/></div>
+    <div class="exercise"><h3>Barbell Bent-over Row</h3><img src="ornek.gif" class="gif"><KgBox id="row"/></div>
+    <div class="exercise"><h3>Seated Cable Row</h3><img src="ornek.gif" class="gif"><KgBox id="scr"/></div>
+    <div class="exercise"><h3>One Arm Dumbbell Row</h3><img src="ornek.gif" class="gif"><KgBox id="oadr"/></div>
+    <div class="exercise"><h3>Vertical Row Machine</h3><img src="ornek.gif" class="gif"><KgBox id="vr"/></div>
+    <div class="exercise"><h3>Barbell Biceps Curl</h3><img src="ornek.gif" class="gif"><KgBox id="bbc"/></div>
+    <div class="exercise"><h3>Scott Curl</h3><img src="ornek.gif" class="gif"><KgBox id="sc"/></div>
+    <div class="exercise"><h3>Alternative Curl</h3><img src="ornek.gif" class="gif"><KgBox id="ac"/></div>
+  </div>
+
+  <!-- 3. GÜN -->
+  <div id="g3" class="day">
+    <div class="exercise"><h3>Barbell Neck Press</h3><img src="ornek.gif" class="gif"><KgBox id="bnp"/></div>
+    <div class="exercise"><h3>Dumbbell Lateral Raise</h3><img src="ornek.gif" class="gif"><KgBox id="dlr"/></div>
+    <div class="exercise"><h3>Military Press</h3><img src="ornek.gif" class="gif"><KgBox id="mp"/></div>
+    <div class="exercise"><h3>Dumbbell Front Raise</h3><img src="ornek.gif" class="gif"><KgBox id="dfr"/></div>
+    <div class="exercise"><h3>Bent Over Lateral Raise</h3><img src="ornek.gif" class="gif"><KgBox id="bolr"/></div>
+    <div class="exercise"><h3>Barbell Squat</h3><img src="ornek.gif" class="gif"><KgBox id="sq"/></div>
+    <div class="exercise"><h3>Leg Press Machine</h3><img src="ornek.gif" class="gif"><KgBox id="lp"/></div>
+    <div class="exercise"><h3>Leg Extension</h3><img src="ornek.gif" class="gif"><KgBox id="le"/></div>
+    <div class="exercise"><h3>Machine Leg Curl</h3><img src="ornek.gif" class="gif"><KgBox id="lc"/></div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function showMonth(id,el){
+  document.querySelectorAll('.month').forEach(m=>m.style.display='none');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).style.display='block';
+  el.classList.add('active');
+}
+function showDay(id,el){
+  el.parentElement.parentElement.querySelectorAll('.day').forEach(d=>d.style.display='none');
+  el.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).style.display='block';
+  el.classList.add('active');
+}
+function renderKg(){
+  document.querySelectorAll("KgBox").forEach(e=>{
+    const id=e.getAttribute("id");
+    e.outerHTML=`<div class="kg">
+      <input id="${id}" placeholder="Kg" value="${localStorage.getItem(id)||""}">
+      <button onclick="localStorage.setItem('${id}',document.getElementById('${id}').value)">Kaydet</button>
+    </div>`;
+  });
+}
+renderKg();
+</script>
+
+</body>
+</html>
