@@ -3,53 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antrenman Programı</title>
+<title>3. Ay Antrenman Programı</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #0f0f0f;
-  color: #ffffff;
+  color: #fff;
 }
 
-.tabs {
+.tabs, .subtabs {
   display: flex;
-  position: sticky;
-  top: 0;
   background: #111;
-  z-index: 10;
+  border-bottom: 1px solid #222;
 }
 
-.tab {
+.tab, .subtabs button {
   flex: 1;
-  padding: 15px;
+  padding: 14px;
   text-align: center;
   cursor: pointer;
   font-weight: 600;
+  background: none;
+  color: #fff;
+  border: none;
 }
 
-.tab.active {
+.tab.active, .subtabs button.active {
   background: #1e1e1e;
   border-bottom: 3px solid #4caf50;
-}
-
-.subtabs {
-  display: flex;
-  background: #181818;
-}
-
-.subtabs button {
-  flex: 1;
-  padding: 12px;
-  background: #181818;
-  border: none;
-  color: white;
-}
-
-.subtabs button.active {
-  background: #4caf50;
-  color: black;
 }
 
 .container {
@@ -59,7 +42,7 @@ body {
 }
 
 .exercise {
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .exercise h2 {
@@ -75,7 +58,59 @@ body {
 
 .kg-box {
   margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .kg-box input {
-  padding: 6px;
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.kg-box button {
+  padding: 10px 15px;
+  background: #4caf50;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AY SEKME -->
+<div class="tabs">
+  <div class="tab active">3. Ay</div>
+</div>
+
+<!-- GÜN SEKME -->
+<div class="subtabs">
+  <button class="active" onclick="showDay('g1', this)">1. Gün</button>
+  <button onclick="showDay('g2', this)">2. Gün</button>
+  <button onclick="showDay('g3', this)">3. Gün</button>
+</div>
+
+<div class="container">
+
+<!-- 1. GÜN -->
+<div id="g1" class="day">
+
+  <div class="exercise">
+    <h2>Bench Press</h2>
+    <img src="ornek.gif">
+    <div class="kg-box">
+      <input id="kg-bench" placeholder="Kg gir">
+      <button onclick="saveKg('kg-bench')">Kaydet</button>
+    </div>
+  </div>
+
+  <div class="exercise"
