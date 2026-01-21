@@ -18,7 +18,6 @@ body {
   position: sticky;
   top: 0;
   background: #111;
-  border-bottom: 1px solid #222;
   z-index: 10;
 }
 
@@ -35,6 +34,24 @@ body {
   border-bottom: 3px solid #4caf50;
 }
 
+.subtabs {
+  display: flex;
+  background: #181818;
+}
+
+.subtabs button {
+  flex: 1;
+  padding: 12px;
+  background: #181818;
+  border: none;
+  color: white;
+}
+
+.subtabs button.active {
+  background: #4caf50;
+  color: black;
+}
+
 .container {
   max-width: 900px;
   margin: auto;
@@ -42,147 +59,23 @@ body {
 }
 
 .exercise {
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 }
 
 .exercise h2 {
   font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .exercise img {
   width: 100%;
   border-radius: 12px;
   background: #222;
-  margin-bottom: 10px;
 }
 
-.hidden {
-  display: none;
+.kg-box {
+  margin-top: 10px;
 }
-</style>
-</head>
 
-<body>
-
-<!-- SEKME BAŞLIKLARI -->
-<div class="tabs">
-  <div class="tab active" onclick="showProgram('front', this)">ÖN</div>
-  <div class="tab" onclick="showProgram('back', this)">ARKA</div>
-</div>
-
-<!-- ÖN PROGRAM -->
-<div id="front" class="container">
-
-  <div class="exercise">
-    <h2>Bench Press</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/SPOTO_BP.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Dumbbell Fly</h2>
-    <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Fly.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Incline Bench Press</h2>
-    <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Barbell-Bench-Press.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Standing Barbell Neck Press</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/BB_BHD_NECK_PRESS.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Dumbbell Lateral Raise</h2>
-    <img src="https://i.pinimg.com/originals/af/20/fc/af20fca777d7d1f44d5391f8645c1957.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Dumbbell Front Raise</h2>
-    <img src="https://www.fitnessandbeast.com/wp-content/uploads/2016/02/dumbbell-front-raise.jpg">
-  </div>
-
-  <div class="exercise">
-    <h2>Barbell Biceps Curl</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/BB_BC_CURL.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Scott Curl</h2>
-    <img src="https://i.pinimg.com/originals/8f/03/87/8f03875e14e7d8687a575b648982352c.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Alternative Curl</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/DB_BC_CURL.gif">
-  </div>
-
-</div>
-
-<!-- ARKA PROGRAM -->
-<div id="back" class="container hidden">
-
-  <div class="exercise">
-    <h2>Lat Pull Down Behind The Neck</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/BHD_NECK_PULL_DOWN.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Barbell Bent-over Rowing</h2>
-    <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Seated Cable Row</h2>
-    <img src="https://training.fit/wp-content/uploads/2020/02/rudern-kabelzug-800x448.png">
-  </div>
-
-  <div class="exercise">
-    <h2>Triceps Pushdown</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/CABLE_PUSH_DOWN.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>French Triceps</h2>
-    <img src="https://steelsupplements.com/cdn/shop/articles/shutterstock_264876506_1000x.jpg?v=1637694608">
-    <img src="https://fitnessvolt.com/wp-content/uploads/2021/12/French-Press-Exercise.jpg">
-  </div>
-
-  <div class="exercise">
-    <h2>One Dumbbell Triceps Press</h2>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1dCEvd5jN4lgYY5aPGgDfyv6ex6LYH9YvJBveGBiJkuATWpjJJIv5fok&s=10">
-  </div>
-
-  <div class="exercise">
-    <h2>Leg Press Machine</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/LEG_PRESS.png">
-  </div>
-
-  <div class="exercise">
-    <h2>Leg Extension</h2>
-    <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/LEG-EXTENSION.gif">
-  </div>
-
-  <div class="exercise">
-    <h2>Machine Leg Curl</h2>
-    <img src="https://burnfit.io/wp-content/uploads/2023/11/LEG_CURL.gif">
-  </div>
-
-</div>
-
-<script>
-function showProgram(id, el) {
-  document.getElementById('front').classList.add('hidden');
-  document.getElementById('back').classList.add('hidden');
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-
-  document.getElementById(id).classList.remove('hidden');
-  el.classList.add('active');
-}
-</script>
-
-</body>
-</html>
+.kg-box input {
+  padding: 6px;
