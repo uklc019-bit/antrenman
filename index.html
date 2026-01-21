@@ -3,118 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antrenman</title>
+<title>Antrenman Programı</title>
 
 <style>
 body{margin:0;font-family:Arial;background:#0f0f0f;color:#fff}
-header{text-align:center;padding:15px;font-size:22px;border-bottom:2px solid #4caf50}
+header{text-align:center;padding:14px;font-size:22px;border-bottom:2px solid #4caf50}
+
 .tabs,.subtabs{display:flex}
-.tabs button,.subtabs button{flex:1;padding:14px;background:#111;color:#fff;border:none;font-weight:bold}
-.tabs button.active,.subtabs button.active{background:#1e1e1e;border-bottom:3px solid #4caf50}
-.container{max-width:800px;margin:auto;padding:15px}
-.exercise{background:#161616;padding:15px;border-radius:10px;margin-bottom:12px}
+.tabs button,.subtabs button{
+  flex:1;padding:14px;background:#111;color:#fff;border:none;font-weight:bold
+}
+.tabs button.active,.subtabs button.active{
+  background:#1e1e1e;border-bottom:3px solid #4caf50
+}
+
+.container{max-width:900px;margin:auto;padding:15px}
+.day,.month{display:none}
+
+.exercise{
+  background:#161616;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px
+}
 .exercise h3{margin:0 0 10px}
+
+.gif{
+  width:100%;
+  max-height:220px;
+  object-fit:contain;
+  background:#000;
+  border-radius:8px;
+  margin-bottom:10px
+}
+
 .kg{display:flex;gap:10px}
 .kg input{flex:1;padding:10px;border-radius:6px;border:none}
-.kg button{background:#4caf50;border:none;border-radius:6px;padding:10px 14px;font-weight:bold}
-.hidden{display:none}
-</style>
-</head>
-
-<body>
-
-<header>Antrenman Programı</header>
-
-<!-- AY SEKME -->
-<div class="tabs">
-  <button class="active" onclick="showMonth('ay2',this)">2. Ay</button>
-  <button onclick="showMonth('ay3',this)">3. Ay</button>
-</div>
-
-<!-- 2. AY -->
-<div id="ay2" class="container">
-  <p>2. Ay programı burada duruyor (önceki içerik).</p>
-</div>
-
-<!-- 3. AY -->
-<div id="ay3" class="container hidden">
-
-  <div class="subtabs">
-    <button class="active" onclick="showDay('g1',this)">1. Gün</button>
-    <button onclick="showDay('g2',this)">2. Gün</button>
-    <button onclick="showDay('g3',this)">3. Gün</button>
-  </div>
-
-  <!-- 1. GÜN -->
-  <div id="g1" class="day">
-    <div class="exercise"><h3>Bench Press</h3><KgBox id="bp"/></div>
-    <div class="exercise"><h3>Dumbbell Fly</h3><KgBox id="df"/></div>
-    <div class="exercise"><h3>Incline Bench Press</h3><KgBox id="ibp"/></div>
-    <div class="exercise"><h3>Incline Dumbbell Press</h3><KgBox id="idp"/></div>
-    <div class="exercise"><h3>Pullover</h3><KgBox id="pl"/></div>
-    <div class="exercise"><h3>Triceps Pushdown</h3><KgBox id="tp"/></div>
-    <div class="exercise"><h3>French Triceps</h3><KgBox id="ft"/></div>
-    <div class="exercise"><h3>One Dumbbell Triceps Press</h3><KgBox id="odtp"/></div>
-  </div>
-
-  <!-- 2. GÜN -->
-  <div id="g2" class="day hidden">
-    <div class="exercise"><h3>Lat Pull Down</h3><KgBox id="lat"/></div>
-    <div class="exercise"><h3>Barbell Row</h3><KgBox id="row"/></div>
-    <div class="exercise"><h3>Seated Cable Row</h3><KgBox id="scr"/></div>
-    <div class="exercise"><h3>One Arm Dumbbell Row</h3><KgBox id="oadr"/></div>
-    <div class="exercise"><h3>Vertical Row Machine</h3><KgBox id="vr"/></div>
-    <div class="exercise"><h3>Barbell Biceps Curl</h3><KgBox id="bbc"/></div>
-    <div class="exercise"><h3>Scott Curl</h3><KgBox id="sc"/></div>
-    <div class="exercise"><h3>Alternative Curl</h3><KgBox id="ac"/></div>
-  </div>
-
-  <!-- 3. GÜN -->
-  <div id="g3" class="day hidden">
-    <div class="exercise"><h3>Barbell Neck Press</h3><KgBox id="bnp"/></div>
-    <div class="exercise"><h3>Dumbbell Lateral Raise</h3><KgBox id="dlr"/></div>
-    <div class="exercise"><h3>Military Press</h3><KgBox id="mp"/></div>
-    <div class="exercise"><h3>Dumbbell Front Raise</h3><KgBox id="dfr"/></div>
-    <div class="exercise"><h3>Bent Over Lateral Raise</h3><KgBox id="bolr"/></div>
-    <div class="exercise"><h3>Barbell Squat</h3><KgBox id="sq"/></div>
-    <div class="exercise"><h3>Leg Press</h3><KgBox id="lp"/></div>
-    <div class="exercise"><h3>Leg Extension</h3><KgBox id="le"/></div>
-    <div class="exercise"><h3>Leg Curl</h3><KgBox id="lc"/></div>
-  </div>
-
-</div>
-
-<script>
-function renderKg(){
-  document.querySelectorAll("KgBox").forEach(e=>{
-    const id=e.getAttribute("id");
-    e.outerHTML=`<div class="kg">
-      <input id="${id}" placeholder="Kg" value="${localStorage.getItem(id)||""}">
-      <button onclick="saveKg('${id}')">Kaydet</button>
-    </div>`;
-  });
-}
-
-function saveKg(id){
-  localStorage.setItem(id,document.getElementById(id).value);
-}
-
-function showMonth(id,el){
-  document.querySelectorAll('.container').forEach(c=>c.classList.add('hidden'));
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.remove('hidden');
-  el.classList.add('active');
-}
-
-function showDay(id,el){
-  document.querySelectorAll('.day').forEach(d=>d.classList.add('hidden'));
-  document.querySelectorAll('.subtabs button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.remove('hidden');
-  el.classList.add('active');
-}
-
-renderKg();
-</script>
-
-</body>
-</html>
+.kg button{
+  background:#4caf50;
+  border:none;
+  border-radius:6px;
+  padding:10px 14px;
