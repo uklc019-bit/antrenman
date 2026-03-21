@@ -50,7 +50,7 @@ body{
   border-radius:10px;
 }
 
-.sets input{
+input{
   width:100%;
   padding:10px;
   margin:5px 0;
@@ -80,67 +80,11 @@ button{
   <div class="tab" onclick="showDay('bacak', this)">Bacak</div>
 </div>
 
-<!-- GÖĞÜS -->
-<div id="gogus" class="day active">
-  <script>createWorkout("gogus", [
-    ["Incline Bench Press",4],
-    ["Incline Dumbbell Fly",3],
-    ["Bench Press",4],
-    ["Dumbbell Press",3],
-    ["Decline Bench Press",3],
-    ["Cable Crossover",3]
-  ])</script>
-</div>
-
-<!-- SIRT -->
-<div id="sirt" class="day">
-  <script>createWorkout("sirt", [
-    ["Lat Pull Down Machine",4],
-    ["T-Bar Row",3],
-    ["Seated Cable Row",4],
-    ["One Arm Dumbbell Row",3],
-    ["Barbell Bent-over Rowing",3],
-    ["Vertical Row Machine",3]
-  ])</script>
-</div>
-
-<!-- OMUZ -->
-<div id="omuz" class="day">
-  <script>createWorkout("omuz", [
-    ["Military Press",4],
-    ["Front Raise",3],
-    ["Barbell Neck Press",4],
-    ["Lateral Raise",3],
-    ["Dumbbell Shoulder Press",3],
-    ["Reverse Pec Fly",3]
-  ])</script>
-</div>
-
-<!-- KOL -->
-<div id="kol" class="day">
-  <script>createWorkout("kol", [
-    ["Dar Bench Press",3],
-    ["Barbell Biceps Curl",3],
-    ["Triceps Push Down",3],
-    ["Scott Curl",3],
-    ["French Triceps",3],
-    ["Hammer Curl",3],
-    ["One Dumbbell Triceps Press",3],
-    ["Alternative Curl",3]
-  ])</script>
-</div>
-
-<!-- BACAK -->
-<div id="bacak" class="day">
-  <script>createWorkout("bacak", [
-    ["Barbell Squat",4],
-    ["Leg Press Machine",4],
-    ["Leg Extension",3],
-    ["Leg Curl",3],
-    ["Lunge",3],
-    ["Calf Raise",3]
-  ])</script>
-</div>
+<div id="gogus" class="day active"></div>
+<div id="sirt" class="day"></div>
+<div id="omuz" class="day"></div>
+<div id="kol" class="day"></div>
+<div id="bacak" class="day"></div>
 
 <script>
 function showDay(id, el){
@@ -176,6 +120,58 @@ function createWorkout(day, exercises){
 
 function save(key, val){
   localStorage.setItem(key, val);
+}
+
+/* SAYFA YÜKLENDİKTEN SONRA ÇALIŞTIR */
+window.onload = function(){
+
+createWorkout("gogus", [
+["Incline Bench Press",4],
+["Incline Dumbbell Fly",3],
+["Bench Press",4],
+["Dumbbell Press",3],
+["Decline Bench Press",3],
+["Cable Crossover",3]
+]);
+
+createWorkout("sirt", [
+["Lat Pull Down Machine",4],
+["T-Bar Row",3],
+["Seated Cable Row",4],
+["One Arm Dumbbell Row",3],
+["Barbell Bent-over Rowing",3],
+["Vertical Row Machine",3]
+]);
+
+createWorkout("omuz", [
+["Military Press",4],
+["Front Raise",3],
+["Barbell Neck Press",4],
+["Lateral Raise",3],
+["Dumbbell Shoulder Press",3],
+["Reverse Pec Fly",3]
+]);
+
+createWorkout("kol", [
+["Dar Bench Press",3],
+["Barbell Biceps Curl",3],
+["Triceps Push Down",3],
+["Scott Curl",3],
+["French Triceps",3],
+["Hammer Curl",3],
+["One Dumbbell Triceps Press",3],
+["Alternative Curl",3]
+]);
+
+createWorkout("bacak", [
+["Barbell Squat",4],
+["Leg Press Machine",4],
+["Leg Extension",3],
+["Leg Curl",3],
+["Lunge",3],
+["Calf Raise",3]
+]);
+
 }
 </script>
 
