@@ -8,28 +8,44 @@
 <style>
 body{
   margin:0;
-  font-family: Arial;
-  background:#0f0f0f;
-  color:white;
+  font-family: Arial, sans-serif;
+  background:#0b0b0b;
+  color:#eee;
 }
 
+/* SEKME BAR */
 .tabs{
   display:flex;
   justify-content:space-around;
-  background:#1a1a1a;
-  padding:10px;
+  background:rgba(20,20,20,0.9);
+  padding:12px;
+  box-shadow:0 0 15px rgba(255,0,0,0.2);
+  position:sticky;
+  top:0;
 }
 
+/* SEKME */
 .tab{
-  padding:10px;
+  padding:10px 14px;
   cursor:pointer;
-  border-radius:10px;
+  border-radius:12px;
+  transition:0.3s;
+  color:#bbb;
 }
 
+.tab:hover{
+  background:rgba(255,0,0,0.15);
+  color:#fff;
+}
+
+/* AKTİF SEKME */
 .active{
-  background:#6c5ce7;
+  background:linear-gradient(135deg,#ff1a1a,#b30000);
+  color:white;
+  box-shadow:0 0 12px rgba(255,0,0,0.6);
 }
 
+/* GÜNLER */
 .day{
   display:none;
 }
@@ -38,34 +54,60 @@ body{
   display:block;
 }
 
+/* KART */
 .card{
-  background:#1c1c1c;
+  background:rgba(25,25,25,0.9);
   margin:15px;
   padding:15px;
-  border-radius:15px;
+  border-radius:18px;
+  box-shadow:0 0 20px rgba(255,0,0,0.15);
+  transition:0.3s;
 }
 
+.card:hover{
+  box-shadow:0 0 25px rgba(255,0,0,0.35);
+  transform:scale(1.01);
+}
+
+/* GIF */
 .card img{
   width:100%;
-  border-radius:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+  opacity:0.9;
 }
 
+/* INPUT */
 input{
   width:100%;
   padding:10px;
-  margin:5px 0;
+  margin:6px 0;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  outline:none;
+  box-shadow: inset 0 0 5px rgba(255,0,0,0.3);
 }
 
+/* BUTTON */
 button{
   width:100%;
   padding:12px;
   margin-top:10px;
-  background:#6c5ce7;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#ff1a1a,#800000);
   color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 10px rgba(255,0,0,0.5);
+}
+
+button:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 20px rgba(255,0,0,0.8);
 }
 </style>
 </head>
