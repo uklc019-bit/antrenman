@@ -8,28 +8,42 @@
 <style>
 body{
   margin:0;
-  font-family: Arial;
-  background:#0f0f0f;
-  color:white;
+  font-family: Arial, sans-serif;
+  background:#0a0a0a;
+  color:#eaeaea;
 }
 
+/* SEKME BAR */
 .tabs{
   display:flex;
   justify-content:space-around;
-  background:#1a1a1a;
-  padding:10px;
+  padding:12px;
+  background:rgba(18,18,18,0.95);
+  border-bottom:1px solid rgba(120,20,40,0.3);
 }
 
+/* SEKME */
 .tab{
-  padding:10px;
+  padding:10px 14px;
   cursor:pointer;
-  border-radius:10px;
+  border-radius:12px;
+  color:#aaa;
+  transition:0.3s;
 }
 
+.tab:hover{
+  color:#fff;
+  background:rgba(120,20,40,0.15);
+}
+
+/* AKTİF SEKME */
 .active{
-  background:#6c5ce7;
+  background:linear-gradient(135deg,#5a0f1f,#8b1e34);
+  color:#fff;
+  box-shadow:0 0 10px rgba(139,30,52,0.5);
 }
 
+/* GÜNLER */
 .day{
   display:none;
 }
@@ -38,34 +52,65 @@ body{
   display:block;
 }
 
+/* KART */
 .card{
-  background:#1c1c1c;
+  background:rgba(22,22,22,0.95);
   margin:15px;
   padding:15px;
-  border-radius:15px;
+  border-radius:18px;
+  border:1px solid rgba(139,30,52,0.2);
+  box-shadow:0 5px 20px rgba(0,0,0,0.6);
+  transition:0.3s;
 }
 
+.card:hover{
+  border:1px solid rgba(139,30,52,0.5);
+  transform:translateY(-3px);
+}
+
+/* GIF */
 .card img{
   width:100%;
-  border-radius:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+  opacity:0.9;
 }
 
+/* INPUT */
 input{
   width:100%;
   padding:10px;
-  margin:5px 0;
+  margin:6px 0;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  outline:none;
+  border:1px solid rgba(139,30,52,0.2);
 }
 
+input:focus{
+  border:1px solid #8b1e34;
+  box-shadow:0 0 5px rgba(139,30,52,0.5);
+}
+
+/* BUTTON */
 button{
   width:100%;
   padding:12px;
   margin-top:10px;
-  background:#6c5ce7;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#5a0f1f,#8b1e34);
   color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:linear-gradient(135deg,#8b1e34,#b8324d);
+  transform:scale(1.02);
 }
 </style>
 </head>
