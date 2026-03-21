@@ -8,83 +8,63 @@
 <style>
 body{
   margin:0;
-  font-family:Arial;
-  background:#0a0a0a;
-  color:#fff;
-}
-
-header{
-  text-align:center;
-  padding:16px;
-  font-size:22px;
-  border-bottom:2px solid #8b1e34;
+  font-family: Arial;
+  background:#0f0f0f;
+  color:white;
 }
 
 .tabs{
   display:flex;
+  justify-content:space-around;
+  background:#1a1a1a;
+  padding:10px;
 }
 
-.tabs button{
-  flex:1;
-  padding:14px;
-  background:#111;
-  color:#fff;
-  border:none;
-  font-weight:bold;
-}
-
-.tabs button.active{
-  background:#1e1e1e;
-  border-bottom:3px solid #8b1e34;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:15px;
-}
-
-.day{display:none}
-
-.exercise{
-  background:#161616;
-  padding:15px;
+.tab{
+  padding:10px;
+  cursor:pointer;
   border-radius:10px;
-  margin-bottom:18px;
 }
 
-.exercise h3{
-  margin:0 0 10px;
+.active{
+  background:#6c5ce7;
 }
 
-.gif{
+.day{
+  display:none;
+}
+
+.day.active{
+  display:block;
+}
+
+.card{
+  background:#1c1c1c;
+  margin:15px;
+  padding:15px;
+  border-radius:15px;
+}
+
+.card img{
   width:100%;
-  max-height:220px;
-  object-fit:contain;
-  background:#000;
+  border-radius:10px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border:none;
   border-radius:8px;
-  margin-bottom:10px;
 }
 
-.kg {
-  display:flex;
-  gap:5px;
-}
-
-.kg input{
-  width:40px;
-  padding:6px;
-  border-radius:6px;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#6c5ce7;
   border:none;
-  text-align:center;
-}
-
-.kg button{
-  background:#8b1e34;
-  border:none;
-  border-radius:6px;
-  padding:6px 12px;
-  font-weight:bold;
+  border-radius:10px;
   color:white;
 }
 </style>
@@ -92,78 +72,107 @@ header{
 
 <body>
 
-<header>5. Ay Antrenman Programı</header>
-
 <div class="tabs">
-  <button class="active" onclick="showDay('g1',this)">Göğüs</button>
-  <button onclick="showDay('g2',this)">Sırt</button>
-  <button onclick="showDay('g3',this)">Omuz</button>
-  <button onclick="showDay('g4',this)">Kol</button>
-  <button onclick="showDay('g5',this)">Bacak</button>
+  <div class="tab active" onclick="showDay('gogus', this)">Göğüs</div>
+  <div class="tab" onclick="showDay('sirt', this)">Sırt</div>
+  <div class="tab" onclick="showDay('omuz', this)">Omuz</div>
+  <div class="tab" onclick="showDay('kol', this)">Kol</div>
+  <div class="tab" onclick="showDay('bacak', this)">Bacak</div>
 </div>
 
-<div class="container">
-
-<!-- GÖĞÜS -->
-<div id="g1" class="day" style="display:block">
-  <div class="exercise"><h3>Incline Bench Press</h3><img src="GIF_LINK" class="gif"><KgBox id="g1_1" set="4"/></div>
-  <div class="exercise"><h3>Incline Dumbbell Fly</h3><img src="GIF_LINK" class="gif"><KgBox id="g1_2" set="3"/></div>
-  <div class="exercise"><h3>Bench Press</h3><img src="GIF_LINK" class="gif"><KgBox id="g1_3" set="4"/></div>
-</div>
-
-<!-- SIRT -->
-<div id="g2" class="day">
-  <div class="exercise"><h3>Lat Pull Down</h3><img src="GIF_LINK" class="gif"><KgBox id="g2_1" set="4"/></div>
-  <div class="exercise"><h3>T-Bar Row</h3><img src="GIF_LINK" class="gif"><KgBox id="g2_2" set="3"/></div>
-</div>
-
-<!-- OMUZ -->
-<div id="g3" class="day">
-  <div class="exercise"><h3>Military Press</h3><img src="GIF_LINK" class="gif"><KgBox id="g3_1" set="4"/></div>
-</div>
-
-<!-- KOL -->
-<div id="g4" class="day">
-  <div class="exercise"><h3>Barbell Biceps Curl</h3><img src="GIF_LINK" class="gif"><KgBox id="g4_1" set="3"/></div>
-</div>
-
-<!-- BACAK -->
-<div id="g5" class="day">
-  <div class="exercise"><h3>Barbell Squat</h3><img src="GIF_LINK" class="gif"><KgBox id="g5_1" set="4"/></div>
-</div>
-
-</div>
+<div id="gogus" class="day active"></div>
+<div id="sirt" class="day"></div>
+<div id="omuz" class="day"></div>
+<div id="kol" class="day"></div>
+<div id="bacak" class="day"></div>
 
 <script>
-function showDay(id,el){
-  document.querySelectorAll('.day').forEach(d=>d.style.display='none');
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).style.display='block';
-  el.classList.add('active');
+function showDay(id, el){
+  document.querySelectorAll(".day").forEach(d=>d.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
 }
 
-function renderKg(){
-  document.querySelectorAll("KgBox").forEach(e=>{
-    const id = e.getAttribute("id");
-    const set = e.getAttribute("set");
+function createWorkout(day, exercises){
+  let container = document.getElementById(day);
 
-    let inputs = '';
-    for(let i=0; i<set; i++){
-      inputs += `<input id="${id}_${i}" placeholder="Kg" value="${localStorage.getItem(id+'_'+i)||''}">`;
+  exercises.forEach((ex,i)=>{
+    let div = document.createElement("div");
+    div.className = "card";
+
+    let html = `<h2>${ex[0]}</h2>
+    <img src="ornek.gif">`;
+
+    for(let s=1;s<=ex[1];s++){
+      let key = day+"_"+i+"_"+s;
+      let val = localStorage.getItem(key) || "";
+      html += `<input placeholder="Set ${s}" value="${val}" onchange="save('${key}', this.value)">`;
     }
 
-    e.outerHTML = `<div class="kg">
-      ${inputs}
-      <button onclick="
-        for(let j=0;j<${set};j++){
-          localStorage.setItem('${id}_'+j,document.getElementById('${id}_'+j).value);
-        }
-      ">Kaydet</button>
-    </div>`;
+    html += `<button onclick="alert('Kaydedildi')">Kaydet</button>`;
+
+    div.innerHTML = html;
+    container.appendChild(div);
   });
 }
 
-renderKg();
+function save(key, val){
+  localStorage.setItem(key, val);
+}
+
+/* SAYFA YÜKLENDİKTEN SONRA ÇALIŞTIR */
+window.onload = function(){
+
+createWorkout("gogus", [
+["Incline Bench Press",4],
+["Incline Dumbbell Fly",3],
+["Bench Press",4],
+["Dumbbell Press",3],
+["Decline Bench Press",3],
+["Cable Crossover",3]
+]);
+
+createWorkout("sirt", [
+["Lat Pull Down Machine",4],
+["T-Bar Row",3],
+["Seated Cable Row",4],
+["One Arm Dumbbell Row",3],
+["Barbell Bent-over Rowing",3],
+["Vertical Row Machine",3]
+]);
+
+createWorkout("omuz", [
+["Military Press",4],
+["Front Raise",3],
+["Barbell Neck Press",4],
+["Lateral Raise",3],
+["Dumbbell Shoulder Press",3],
+["Reverse Pec Fly",3]
+]);
+
+createWorkout("kol", [
+["Dar Bench Press",3],
+["Barbell Biceps Curl",3],
+["Triceps Push Down",3],
+["Scott Curl",3],
+["French Triceps",3],
+["Hammer Curl",3],
+["One Dumbbell Triceps Press",3],
+["Alternative Curl",3]
+]);
+
+createWorkout("bacak", [
+["Barbell Squat",4],
+["Leg Press Machine",4],
+["Leg Extension",3],
+["Leg Curl",3],
+["Lunge",3],
+["Calf Raise",3]
+]);
+
+}
 </script>
 
 </body>
