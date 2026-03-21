@@ -12,8 +12,6 @@ body{
   background:#0a0a0a;
   color:#eaeaea;
 }
-
-/* SEKME BAR */
 .tabs{
   display:flex;
   justify-content:space-around;
@@ -21,8 +19,6 @@ body{
   background:rgba(18,18,18,0.95);
   border-bottom:1px solid rgba(120,20,40,0.3);
 }
-
-/* SEKME */
 .tab{
   padding:10px 14px;
   cursor:pointer;
@@ -30,29 +26,21 @@ body{
   color:#aaa;
   transition:0.3s;
 }
-
 .tab:hover{
   color:#fff;
   background:rgba(120,20,40,0.15);
 }
-
-/* AKTİF SEKME */
 .active{
   background:linear-gradient(135deg,#5a0f1f,#8b1e34);
   color:#fff;
   box-shadow:0 0 10px rgba(139,30,52,0.5);
 }
-
-/* GÜNLER */
 .day{
   display:none;
 }
-
 .day.active{
-  display:block;
+  display:block !important;
 }
-
-/* KART */
 .card{
   background:rgba(22,22,22,0.95);
   margin:15px;
@@ -62,21 +50,16 @@ body{
   box-shadow:0 5px 20px rgba(0,0,0,0.6);
   transition:0.3s;
 }
-
 .card:hover{
   border:1px solid rgba(139,30,52,0.5);
   transform:translateY(-3px);
 }
-
-/* GIF */
 .card img{
   width:100%;
   border-radius:12px;
   margin-bottom:10px;
   opacity:0.9;
 }
-
-/* INPUT */
 input{
   width:100%;
   padding:10px;
@@ -88,13 +71,10 @@ input{
   outline:none;
   border:1px solid rgba(139,30,52,0.2);
 }
-
 input:focus{
   border:1px solid #8b1e34;
   box-shadow:0 0 5px rgba(139,30,52,0.5);
 }
-
-/* BUTTON */
 button{
   width:100%;
   padding:12px;
@@ -107,14 +87,17 @@ button{
   cursor:pointer;
   transition:0.3s;
 }
-
 button:hover{
   background:linear-gradient(135deg,#8b1e34,#b8324d);
   transform:scale(1.02);
 }
+.count{
+  color:#d4af37;
+  font-weight:bold;
+  margin-left:5px;
+}
 </style>
 </head>
-
 <body>
 
 <div class="tabs">
@@ -125,224 +108,45 @@ button:hover{
   <div class="tab" onclick="showDay('bacak', this)">Bacak</div>
 </div>
 
+<!-- GÜNLER -->
+
+<!-- GÖĞÜS -->
 <div id="gogus" class="day active">
-  <div class="card">
-    <h3>Incline Bench Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_0_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_0_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_0_3', this.value)">
-    <input placeholder="Set 4" onchange="save('gogus_0_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Incline Dumbbell Fly</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_1_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_1_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_1_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Bench Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_2_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_2_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_2_3', this.value)">
-    <input placeholder="Set 4" onchange="save('gogus_2_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Dumbbell Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_3_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_3_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_3_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Decline Bench Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_4_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_4_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_4_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Cable Crossover</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('gogus_5_1', this.value)">
-    <input placeholder="Set 2" onchange="save('gogus_5_2', this.value)">
-    <input placeholder="Set 3" onchange="save('gogus_5_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
+  <div class="card"><h3>Incline Bench Press <span class="count">1/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_0_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_0_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_0_3', this.value)"><input placeholder="Set 4" onchange="save('gogus_0_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Incline Dumbbell Fly <span class="count">2/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_1_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_1_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_1_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Bench Press <span class="count">3/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_2_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_2_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_2_3', this.value)"><input placeholder="Set 4" onchange="save('gogus_2_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Dumbbell Press <span class="count">4/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_3_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_3_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_3_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Decline Bench Press <span class="count">5/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_4_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_4_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_4_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Cable Crossover <span class="count">6/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('gogus_5_1', this.value)"><input placeholder="Set 2" onchange="save('gogus_5_2', this.value)"><input placeholder="Set 3" onchange="save('gogus_5_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
 </div>
 
+<!-- SIRT -->
 <div id="sirt" class="day">
-  <div class="card">
-    <h3>Lat Pull Down Machine</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_0_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_0_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_0_3', this.value)">
-    <input placeholder="Set 4" onchange="save('sirt_0_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>T-Bar Row</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_1_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_1_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_1_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Seated Cable Row</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_2_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_2_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_2_3', this.value)">
-    <input placeholder="Set 4" onchange="save('sirt_2_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>One Arm Dumbbell Row</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_3_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_3_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_3_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Barbell Bent-over Rowing</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_4_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_4_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_4_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Vertical Row Machine</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('sirt_5_1', this.value)">
-    <input placeholder="Set 2" onchange="save('sirt_5_2', this.value)">
-    <input placeholder="Set 3" onchange="save('sirt_5_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
+  <div class="card"><h3>Lat Pull Down Machine <span class="count">1/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_0_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_0_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_0_3', this.value)"><input placeholder="Set 4" onchange="save('sirt_0_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>T-Bar Row <span class="count">2/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_1_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_1_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_1_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Seated Cable Row <span class="count">3/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_2_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_2_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_2_3', this.value)"><input placeholder="Set 4" onchange="save('sirt_2_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>One Arm Dumbbell Row <span class="count">4/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_3_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_3_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_3_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Barbell Bent-over Rowing <span class="count">5/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_4_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_4_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_4_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Vertical Row Machine <span class="count">6/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('sirt_5_1', this.value)"><input placeholder="Set 2" onchange="save('sirt_5_2', this.value)"><input placeholder="Set 3" onchange="save('sirt_5_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
 </div>
 
+<!-- OMUZ -->
 <div id="omuz" class="day">
-  <div class="card">
-    <h3>Military Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_0_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_0_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_0_3', this.value)">
-    <input placeholder="Set 4" onchange="save('omuz_0_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Front Raise</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_1_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_1_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_1_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Barbell Neck Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_2_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_2_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_2_3', this.value)">
-    <input placeholder="Set 4" onchange="save('omuz_2_4', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Lateral Raise</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_3_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_3_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_3_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Dumbbell Shoulder Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_4_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_4_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_4_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Reverse Pec Fly</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('omuz_5_1', this.value)">
-    <input placeholder="Set 2" onchange="save('omuz_5_2', this.value)">
-    <input placeholder="Set 3" onchange="save('omuz_5_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
+  <div class="card"><h3>Military Press <span class="count">1/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_0_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_0_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_0_3', this.value)"><input placeholder="Set 4" onchange="save('omuz_0_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Front Raise <span class="count">2/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_1_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_1_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_1_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Barbell Neck Press <span class="count">3/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_2_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_2_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_2_3', this.value)"><input placeholder="Set 4" onchange="save('omuz_2_4', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Lateral Raise <span class="count">4/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_3_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_3_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_3_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Dumbbell Shoulder Press <span class="count">5/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_4_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_4_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_4_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Reverse Pec Fly <span class="count">6/6</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('omuz_5_1', this.value)"><input placeholder="Set 2" onchange="save('omuz_5_2', this.value)"><input placeholder="Set 3" onchange="save('omuz_5_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
 </div>
 
+<!-- KOL -->
 <div id="kol" class="day">
-  <div class="card">
-    <h3>Dar Bench Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_0_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_0_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_0_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Barbell Biceps Curl</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_1_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_1_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_1_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Triceps Push Down</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_2_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_2_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_2_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Scott Curl</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_3_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_3_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_3_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>French Triceps</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_4_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_4_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_4_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Hammer Curl</h3>
-    <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif">
-    <input placeholder="Set 1" onchange="save('kol_5_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_5_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_5_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>One Dumbbell Triceps Press</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_6_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_6_2', this.value)">
-    <input placeholder="Set 3" onchange="save('kol_6_3', this.value)">
-    <button onclick="alert('Kaydedildi')">Kaydet</button>
-  </div>
-  <div class="card">
-    <h3>Alternative Curl</h3>
-    <img src="ornek.gif">
-    <input placeholder="Set 1" onchange="save('kol_7_1', this.value)">
-    <input placeholder="Set 2" onchange="save('kol_7_2', this.value)">
+  <div class="card"><h3>Dar Bench Press <span class="count">1/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_0_1', this.value)"><input placeholder="Set 2" onchange="save('kol_0_2', this.value)"><input placeholder="Set 3" onchange="save('kol_0_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Barbell Biceps Curl <span class="count">2/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_1_1', this.value)"><input placeholder="Set 2" onchange="save('kol_1_2', this.value)"><input placeholder="Set 3" onchange="save('kol_1_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Triceps Push Down <span class="count">3/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_2_1', this.value)"><input placeholder="Set 2" onchange="save('kol_2_2', this.value)"><input placeholder="Set 3" onchange="save('kol_2_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Scott Curl <span class="count">4/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_3_1', this.value)"><input placeholder="Set 2" onchange="save('kol_3_2', this.value)"><input placeholder="Set 3" onchange="save('kol_3_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>French Triceps <span class="count">5/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_4_1', this.value)"><input placeholder="Set 2" onchange="save('kol_4_2', this.value)"><input placeholder="Set 3" onchange="save('kol_4_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Hammer Curl <span class="count">6/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_5_1', this.value)"><input placeholder="Set 2" onchange="save('kol_5_2', this.value)"><input placeholder="Set 3" onchange="save('kol_5_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>One Dumbbell Triceps Press <span class="count">7/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_6_1', this.value)"><input placeholder="Set 2" onchange="save('kol_6_2', this.value)"><input placeholder="Set 3" onchange="save('kol_6_3', this.value)"><button onclick="alert('Kaydedildi')">Kaydet</button></div>
+  <div class="card"><h3>Alternative Curl <span class="count">8/8</span></h3><img src="ornek.gif"><input placeholder="Set 1" onchange="save('kol_7_1', this.value)"><input placeholder="Set 2" onchange="save('kol_7_2', this.value)"><input placeholder
