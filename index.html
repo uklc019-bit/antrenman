@@ -125,100 +125,224 @@ button:hover{
   <div class="tab" onclick="showDay('bacak', this)">Bacak</div>
 </div>
 
-<div id="gogus" class="day active"></div>
-<div id="sirt" class="day"></div>
-<div id="omuz" class="day"></div>
-<div id="kol" class="day"></div>
-<div id="bacak" class="day"></div>
+<div id="gogus" class="day active">
+  <div class="card">
+    <h3>Incline Bench Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_0_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_0_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_0_3', this.value)">
+    <input placeholder="Set 4" onchange="save('gogus_0_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Incline Dumbbell Fly</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_1_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_1_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_1_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Bench Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_2_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_2_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_2_3', this.value)">
+    <input placeholder="Set 4" onchange="save('gogus_2_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Dumbbell Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_3_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_3_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_3_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Decline Bench Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_4_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_4_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_4_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Cable Crossover</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('gogus_5_1', this.value)">
+    <input placeholder="Set 2" onchange="save('gogus_5_2', this.value)">
+    <input placeholder="Set 3" onchange="save('gogus_5_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+</div>
 
-<script>
-function showDay(id, el){
-  document.querySelectorAll(".day").forEach(d=>d.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+<div id="sirt" class="day">
+  <div class="card">
+    <h3>Lat Pull Down Machine</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_0_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_0_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_0_3', this.value)">
+    <input placeholder="Set 4" onchange="save('sirt_0_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>T-Bar Row</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_1_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_1_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_1_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Seated Cable Row</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_2_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_2_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_2_3', this.value)">
+    <input placeholder="Set 4" onchange="save('sirt_2_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>One Arm Dumbbell Row</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_3_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_3_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_3_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Barbell Bent-over Rowing</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_4_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_4_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_4_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Vertical Row Machine</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('sirt_5_1', this.value)">
+    <input placeholder="Set 2" onchange="save('sirt_5_2', this.value)">
+    <input placeholder="Set 3" onchange="save('sirt_5_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+</div>
 
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-  el.classList.add("active");
-}
+<div id="omuz" class="day">
+  <div class="card">
+    <h3>Military Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_0_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_0_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_0_3', this.value)">
+    <input placeholder="Set 4" onchange="save('omuz_0_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Front Raise</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_1_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_1_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_1_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Barbell Neck Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_2_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_2_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_2_3', this.value)">
+    <input placeholder="Set 4" onchange="save('omuz_2_4', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Lateral Raise</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_3_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_3_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_3_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Dumbbell Shoulder Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_4_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_4_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_4_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Reverse Pec Fly</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('omuz_5_1', this.value)">
+    <input placeholder="Set 2" onchange="save('omuz_5_2', this.value)">
+    <input placeholder="Set 3" onchange="save('omuz_5_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+</div>
 
-function createWorkout(day, exercises){
-  let container = document.getElementById(day);
-
-  exercises.forEach((ex,i)=>{
-    let div = document.createElement("div");
-    div.className = "card";
-
-    let html = `<h2>${ex[0]}</h2>
-    <img src="ornek.gif">`;
-
-    for(let s=1;s<=ex[1];s++){
-      let key = day+"_"+i+"_"+s;
-      let val = localStorage.getItem(key) || "";
-      html += `<input placeholder="Set ${s}" value="${val}" onchange="save('${key}', this.value)">`;
-    }
-
-    html += `<button onclick="alert('Kaydedildi')">Kaydet</button>`;
-
-    div.innerHTML = html;
-    container.appendChild(div);
-  });
-}
-
-function save(key, val){
-  localStorage.setItem(key, val);
-}
-
-/* SAYFA YÜKLENDİKTEN SONRA ÇALIŞTIR */
-window.onload = function(){
-
-createWorkout("gogus", [
-["Incline Bench Press",4],
-["Incline Dumbbell Fly",3],
-["Bench Press",4],
-["Dumbbell Press",3],
-["Decline Bench Press",3],
-["Cable Crossover",3]
-]);
-
-createWorkout("sirt", [
-["Lat Pull Down Machine",4],
-["T-Bar Row",3],
-["Seated Cable Row",4],
-["One Arm Dumbbell Row",3],
-["Barbell Bent-over Rowing",3],
-["Vertical Row Machine",3]
-]);
-
-createWorkout("omuz", [
-["Military Press",4],
-["Front Raise",3],
-["Barbell Neck Press",4],
-["Lateral Raise",3],
-["Dumbbell Shoulder Press",3],
-["Reverse Pec Fly",3]
-]);
-
-createWorkout("kol", [
-["Dar Bench Press",3],
-["Barbell Biceps Curl",3],
-["Triceps Push Down",3],
-["Scott Curl",3],
-["French Triceps",3],
-["Hammer Curl",3],
-["One Dumbbell Triceps Press",3],
-["Alternative Curl",3]
-]);
-
-createWorkout("bacak", [
-["Barbell Squat",4],
-["Leg Press Machine",4],
-["Leg Extension",3],
-["Leg Curl",3],
-["Lunge",3],
-["Calf Raise",3]
-]);
-
-}
-</script>
-
-</body>
-</html>
+<div id="kol" class="day">
+  <div class="card">
+    <h3>Dar Bench Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_0_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_0_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_0_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Barbell Biceps Curl</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_1_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_1_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_1_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Triceps Push Down</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_2_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_2_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_2_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Scott Curl</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_3_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_3_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_3_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>French Triceps</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_4_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_4_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_4_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Hammer Curl</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_5_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_5_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_5_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>One Dumbbell Triceps Press</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_6_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_6_2', this.value)">
+    <input placeholder="Set 3" onchange="save('kol_6_3', this.value)">
+    <button onclick="alert('Kaydedildi')">Kaydet</button>
+  </div>
+  <div class="card">
+    <h3>Alternative Curl</h3>
+    <img src="ornek.gif">
+    <input placeholder="Set 1" onchange="save('kol_7_1', this.value)">
+    <input placeholder="Set 2" onchange="save('kol_7_2', this.value)">
