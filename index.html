@@ -6,6 +6,30 @@
 <title>5. Ay Programı</title>
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#0a0a0a;color:#eaeaea;}
+
+/* ÜST SEÇİM ALANI */
+.top-select{
+  display:flex;
+  gap:10px;
+  padding:10px;
+  background:#111;
+}
+
+.top-select select{
+  padding:8px;
+  border-radius:8px;
+  border:none;
+}
+
+.top-select button{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  background:#8b1e34;
+  color:#fff;
+  cursor:pointer;
+}
+
 .tabs{display:flex;justify-content:space-around;padding:12px;background:rgba(18,18,18,0.95);border-bottom:1px solid rgba(120,20,40,0.3);}
 .tab{padding:10px 14px;cursor:pointer;border-radius:12px;color:#aaa;transition:0.3s;}
 .tab:hover{color:#fff;background:rgba(120,20,40,0.15);}
@@ -23,6 +47,18 @@ button:hover{background:linear-gradient(135deg,#8b1e34,#b8324d);transform:scale(
 </head>
 <body>
 
+<!-- 🔥 EKLEDİĞİM KISIM -->
+<div class="top-select">
+  <select id="secim">
+    <option value="gogus">Göğüs</option>
+    <option value="sirt">Sırt</option>
+    <option value="omuz">Omuz</option>
+    <option value="kol">Kol</option>
+    <option value="bacak">Bacak</option>
+  </select>
+  <button onclick="kaydetSecim()">Kaydet</button>
+</div>
+
 <div class="tabs">
   <div class="tab active" onclick="showDay('gogus', this)">Göğüs</div>
   <div class="tab" onclick="showDay('sirt', this)">Sırt</div>
@@ -38,6 +74,47 @@ button:hover{background:linear-gradient(135deg,#8b1e34,#b8324d);transform:scale(
 <div id="bacak" class="day"></div>
 
 <script>
+
+// 🔥 SEÇİM KAYDETME
+function kaydetSecim(){
+  const val = document.getElementById("secim").value;
+  localStorage.setItem("secim", val);
+}
+
+// SAYFA AÇILINCA GERİ YÜKLE
+window.onload=function(){
+  const val = localStorage.getItem("secim");
+  if(val){
+    document.getElementById("secim").value = val;
+  }
+
+  // ORİJİNAL KODUN DEVAMI 👇
+  createWorkout("gogus",[
+    ["Incline Bench Press",4,"https://www.strengthlog.com/wp-content/uploads/2020/03/Incline-Bench-Press.gif"],
+    ["Incline Dumbbell Fly",3,"https://training.fit/wp-content/uploads/2020/02/fliegende-schraegbank-800x448.png"],
+    ["Bench Press",4,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"],
+    ["Dumbbell Press",3,"https://burnfit.io/en/wp-content/uploads/sites/3/2026/01/DB_BP.gif"],
+    ["Decline Bench Press",3,"https://fitnessprogramer.com/wp-content/uploads/2021/03/Decline-Barbell-Bench-Press.gif"],
+    ["Cable Crossover",3,"https://i.pinimg.com/originals/06/bc/08/06bc08f20343ec7179604d52c4e0e054.gif"]
+  ]);
+
+  createWorkout("sirt",[
+    ["Lat Pull Down Machine",4,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif"]
+  ]);
+
+  createWorkout("omuz",[
+    ["Military Press",4,"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/04/smith-machine-shoulder-press.gif?fit=600%2C600&ssl=1"]
+  ]);
+
+  createWorkout("kol",[
+    ["Dar Bench Press",3,"https://9to5strength.com/wp-content/uploads/2016/09/Close-Grip-Bench-Press.gif"]
+  ]);
+
+  createWorkout("bacak",[
+    ["Barbell Squat",4,"https://fitnessprogramer.com/wp-content/uploads/2023/01/Barbell-Jump-Squat.gif"]
+  ]);
+};
+
 // Sekme geçiş
 function showDay(id, el){
   document.querySelectorAll(".day").forEach(d=>d.classList.remove("active"));
@@ -56,7 +133,7 @@ function createWorkout(day, exercises){
     let div=document.createElement("div");
     div.className="card";
     let html=`<h3>${ex[0]} <span class="count">${i+1}/${exercises.length}</span></h3>`;
-    html+=`<img src="${ex[2] || 'ornek.gif'}">`; // GIF linki buradan değiştirilecek
+    html+=`<img src="${ex[2] || 'ornek.gif'}">`;
     for(let s=1;s<=ex[1];s++){
       let key=`${day}_${i}_${s}`;
       let val=localStorage.getItem(key)||"";
@@ -66,56 +143,6 @@ function createWorkout(day, exercises){
     div.innerHTML=html;
     container.appendChild(div);
   });
-}
-
-// Sayfa yüklenince tüm günleri oluştur
-window.onload=function(){
-  createWorkout("gogus",[
-    ["Incline Bench Press",4,"https://www.strengthlog.com/wp-content/uploads/2020/03/Incline-Bench-Press.gif"],
-    ["Incline Dumbbell Fly",3,"https://training.fit/wp-content/uploads/2020/02/fliegende-schraegbank-800x448.png"],
-    ["Bench Press",4,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"],
-    ["Dumbbell Press",3,"https://burnfit.io/en/wp-content/uploads/sites/3/2026/01/DB_BP.gif"],
-    ["Decline Bench Press",3,"https://fitnessprogramer.com/wp-content/uploads/2021/03/Decline-Barbell-Bench-Press.gif"],
-    ["Cable Crossover",3,"https://i.pinimg.com/originals/06/bc/08/06bc08f20343ec7179604d52c4e0e054.gif"]
-  ]);
-
-  createWorkout("sirt",[
-    ["Lat Pull Down Machine",4,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif"],
-    ["T-Bar Row",3,"ornek.gif"],
-    ["Seated Cable Row",4,"https://i.namu.wiki/i/qE1tddISYh8n7gCAPqAhuGNFDxDr_aihEMqrYw0989bTKSP_K0hX4ZSr-7Qm-pyGVbO08QsQmwNj1dXqvmpSJw.webp"],
-    ["One Arm Dumbbell Row",3,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Row.gif"],
-    ["Barbell Bent-over Rowing",3,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKyXeC53nU79lG6V7aSTGlknIDFjAk9lTXo5pXn32ggoZDpShPrjYpwo-D&s=10"],
-    ["Vertical Row Machine",3,"https://app.aspira-fitness.com/api/media/c9582142-ea9f-40ee-b9ac-f08ef4912a4e"]
-  ]);
-
-  createWorkout("omuz",[
-    ["Military Press",4,"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/04/smith-machine-shoulder-press.gif?fit=600%2C600&ssl=1"],
-    ["Front Raise",3,"https://images.squarespace-cdn.com/content/v1/55e406fbe4b0b03c5e7543ae/1500548067499-ZPY2NVD7H1PZW85S1LVW/Standing+Alternate+Vertical+Dumbbell+Front+Raises"],
-    ["Barbell Neck Press",4,"https://fitnessprogramer.com/wp-content/uploads/2021/06/Smith-Machine-Behind-Neck-Press.gif"],
-    ["Lateral Raise",3,"https://www.strengthlog.com/wp-content/uploads/2020/12/Dumbbell-Lateral-Raise.gif"],
-    ["Dumbbell Shoulder Press",3,"https://burnfit.io/en/wp-content/uploads/sites/3/2026/01/SEAT_DB_SHD_PRESS.gif"],
-    ["Reverse Pec Fly",3,"https://sporium.net/wp-content/uploads/2020/02/reverse-pec-deck-fly.jpg"]
-  ]);
-
-  createWorkout("kol",[
-    ["Dar Bench Press",3,"https://9to5strength.com/wp-content/uploads/2016/09/Close-Grip-Bench-Press.gif"],
-    ["Barbell Biceps Curl",3,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNeuYuk6pKjV5Dl1TsryKIq5NJ9i5wS2R9K3qB2JgQnw&s=10"],
-    ["Triceps Push Down",3,"https://www.strengthlog.com/wp-content/uploads/2020/03/triceps-pushdown-with-straight-handle.gif"],
-    ["Scott Curl",3,"https://miro.medium.com/v2/resize:fit:1400/0*ednzW7zRRUT4a3Rd.gif"],
-    ["French Triceps",3,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfIaCUpCvSbjUaokQRidW40YL8DcaWUxG5rrtLOBffQ&s=10"],
-    ["Hammer Curl",3,"https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif"],
-    ["One Dumbbell Triceps Press",3,"https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1638260103209-NCDPK0RI94MTSL5YWMZM/One%2BArm%2BOverhead%2BStanding%2BTricep"],
-    ["Alternative Curl",3,"https://cdn.shopify.com/s/files/1/1497/9682/files/2_dd805047-4f47-4ebf-ad7b-3336dd3b69d2.jpg?v=1658851624"]
-  ]);
-
-  createWorkout("bacak",[
-    ["Barbell Squat",4,"https://fitnessprogramer.com/wp-content/uploads/2023/01/Barbell-Jump-Squat.gif"],
-    ["Leg Press Machine",4,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqq8tiUlANTeIDENJV-elg7P8U4jyv2Sq40vmqq9d4iQ&s=10"],
-    ["Leg Extension",3,"https://fitnessprogramer.com/wp-content/uploads/2021/02/LEG-EXTENSION.gif"],
-    ["Leg Curl",3,"https://cdn05.zipify.com/DEy9eP8SjfPH5VtqDXB0wzZucEQ=/fit-in/3840x0/ef422538af8d4ede9dbf29f7dd318f4b/lying-leg-curl.gif"],
-    ["Lunge",3,"ornek.gif"],
-    ["Calf Raise",3,"ornek.gif"]
-  ]);
 }
 </script>
 </body>
