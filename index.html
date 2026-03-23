@@ -10,17 +10,9 @@ body{margin:0;font-family:Arial,sans-serif;background:#0a0a0a;color:#eaeaea;}
 /* ÜST SEÇİM ALANI */
 .top-select{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
   gap:10px;
-  padding:12px;
-  background:linear-gradient(135deg,#1b5e20,#2e7d32); /* YEŞİL */
-  border-bottom:2px solid #4caf50;
-}
-
-.top-select span{
-  font-weight:bold;
-  font-size:16px;
+  padding:10px;
+  background:#111;
 }
 
 .top-select select{
@@ -33,9 +25,8 @@ body{margin:0;font-family:Arial,sans-serif;background:#0a0a0a;color:#eaeaea;}
   padding:8px 12px;
   border:none;
   border-radius:8px;
-  background:#000;
-  color:#4caf50;
-  font-weight:bold;
+  background:#8b1e34;
+  color:#fff;
   cursor:pointer;
 }
 
@@ -57,10 +48,7 @@ button:hover{background:linear-gradient(135deg,#8b1e34,#b8324d);transform:scale(
 <body>
 
 <!-- 🔥 EKLEDİĞİM KISIM -->
-
 <div class="top-select">
-  <span id="lastText">Son Yapılan: -</span>
-
   <select id="secim">
     <option value="gogus">Göğüs</option>
     <option value="sirt">Sırt</option>
@@ -68,9 +56,9 @@ button:hover{background:linear-gradient(135deg,#8b1e34,#b8324d);transform:scale(
     <option value="kol">Kol</option>
     <option value="bacak">Bacak</option>
   </select>
-
   <button onclick="kaydetSecim()">Kaydet</button>
 </div>
+
 <div class="tabs">
   <div class="tab active" onclick="showDay('gogus', this)">Göğüs</div>
   <div class="tab" onclick="showDay('sirt', this)">Sırt</div>
@@ -91,35 +79,14 @@ button:hover{background:linear-gradient(135deg,#8b1e34,#b8324d);transform:scale(
 function kaydetSecim(){
   const val = document.getElementById("secim").value;
   localStorage.setItem("secim", val);
-  guncelleText();
 }
 
-function guncelleText(){
+// SAYFA AÇILINCA GERİ YÜKLE
+window.onload=function(){
   const val = localStorage.getItem("secim");
-
-  const isimler = {
-    gogus: "Göğüs",
-    sirt: "Sırt",
-    omuz: "Omuz",
-    kol: "Kol",
-    bacak: "Bacak"
-  };
-
-  if(val){
-    document.getElementById("lastText").innerText = "Son Yapılan: " + isimler[val];
-  }
-}
-
-/* SAYFA AÇILINCA */
-window.addEventListener("load", ()=>{
-  const val = localStorage.getItem("secim");
-  
   if(val){
     document.getElementById("secim").value = val;
   }
-
-  guncelleText();
-});
 
   // ORİJİNAL KODUN DEVAMI 👇
   createWorkout("gogus",[
